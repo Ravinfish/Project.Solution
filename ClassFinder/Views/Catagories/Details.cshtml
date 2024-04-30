@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+@using ClassFinder.Models
+@model ClassFinder.Models.Category
+
+<div class="row">
+  <div class="card col-sm-8 mx-auto p-3" style="width: 30rem">
+<h2>Category Types</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>

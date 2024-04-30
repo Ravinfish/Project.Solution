@@ -11,4 +11,7 @@ public class Company
   public Category? Category { get; set; }
   public int CategoryId { get; set; }
 
+  public string? Owner { get; set; }
+  public string? Address { get; set; }
+
 } 

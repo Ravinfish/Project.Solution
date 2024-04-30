@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClassFinder.Models;
 
-public class Class
+public class Course
 {
-  public int ClassId { get; set; }
+  public int CourseId { get; set; }
   public string Title { get; set; }
   public string Description { get; set; }
-  public string Catagory { get; set; }
+  public string Category { get; set; }
   public string DataAnnotations { get; set; }
 
 }

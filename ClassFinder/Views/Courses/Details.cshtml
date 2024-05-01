@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ClassFinder.Models.Course
+@using ClassFinder.Models
+
+<div class="row">
+  <div class="card col-sm-8 mx-auto p-3" style="width: 30rem">
+    <h2>Business Details</h2>
+    <hr />
+    <div>
+      <h3>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</h3>
+      <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+      <h3>@Html.DisplayNameFor(model => model.Schedule): @Html.DisplayFor(model => model.Schedule)</h3>
+      <h3>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category.Name)</h3>
+    </div>
+  </div>
+</div>
+
+<button>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</button>
+<button>@Html.ActionLink("Delete", "Delete", new { id = Model.CourseId })</button>

@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ClassFinder.Models.Course
+
+<h2>Edit</h2>
+<h4>Edit this Business: @Html.DisplayFor(model => model.Title)</h4>
+<hr />
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title)
+  <br />
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  <br />
+  @Html.LabelFor(model => model.Schedule)
+  @Html.TextBoxFor(model => model.Schedule)
+  <br />
+  @Html.LabelFor(model => model.Category)
+  @Html.DropDownList("CategoryId")
+  <br />
+  <input type="submit" value="Update" />
+}

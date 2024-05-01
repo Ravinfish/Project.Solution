@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@using ClassFinder.Models;
+@model List<ClassFinder.Models.Course>;
+<h1>Class List</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No classes have been added yet..</h3>
+}
+else
+{
+  @foreach (Course course in Model)
+  {
+    <h4>@Html.ActionLink($"{course.Title}", "Details", new { id = course.CourseId }) | @course.Category.Name</h4>
+  }
+}

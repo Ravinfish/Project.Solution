@@ -13,7 +13,7 @@
 }
 else
 {
-  foreach (var category in Model)
+  foreach (Category category in Model)
   {
     <h4>@Html.ActionLink(category.Name, "Details", "Categories", new { id = category.CategoryId }, null)</h4>
   }

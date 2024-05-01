@@ -14,6 +14,8 @@ else
 {
   @foreach (Company company in Model)
   {
-    <h4>@Html.ActionLink($"{company.Name}", "Details", new { id = company.CompanyId }) | @company.Category.Name</h4>
+   <h4>@Html.ActionLink($"{company.Name}", "Details", new { id = company.CompanyId }) | @(company.Category != null ? company.Category.Name : "No Category")</h4>
+
   }
 }
+<p>Go to @Html.ActionLink("this page", "Create", "Companies") to create add a company.</p>

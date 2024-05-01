@@ -22,8 +22,14 @@
   @Html.LabelFor(model => model.Address)
   @Html.TextBoxFor(model => model.Address)
   <br />
-  @Html.LabelFor(model => model.Category)
-  @Html.DropDownList("CategoryId")
+  <div class="form-group">
+    <label asp-for="CategoryId" class="control-label"></label>
+    @Html.DropDownList("CategoryId", ViewData["CategoryId"] as SelectList, "Select Category", new
+      {
+        @class =
+        "form-control"
+      })
+  </div>
   <br />
   <input type="submit" value="Update" />
 }

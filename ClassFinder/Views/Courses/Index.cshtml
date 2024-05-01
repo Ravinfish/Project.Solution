@@ -17,3 +17,5 @@ else
     <h4>@Html.ActionLink($"{course.Title}", "Details", new { id = course.CourseId }) | @course.Category.Name</h4>
   }
 }
+
+<p>Go to @Html.ActionLink("this page", "Create", "Courses") to create a course.</p>

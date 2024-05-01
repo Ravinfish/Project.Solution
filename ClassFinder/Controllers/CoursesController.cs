@@ -3,6 +3,7 @@ using System.Linq;
 using ClassFinder.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ClassFinder.Controllers
 {
@@ -15,27 +16,26 @@ namespace ClassFinder.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
-    {
-      List<Course> model = _db.Courses.ToList();
-      return View(model);
-    }
+     public ActionResult Index()
+        {
+            List<Course> courses = _db.Courses.Include(c => c.Category).ToList();
+            return View(courses);
+        }
 
-    public ActionResult Create()
-    {
-      return View();
-    }
+   public ActionResult Create()
+        {
+            var categories = _db.Categories.ToList();
+            ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name");
+            return View();
+        }
 
     [HttpPost]
     public ActionResult Create(Course course)
     {
-      if (ModelState.IsValid)
-      {
-        _db.Courses.Add(course);
-        _db.SaveChanges();
-        return RedirectToAction("Index");
-      }
-      return View(course); // Return to the create view with validation errors
+
+      _db.Courses.Add(course);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)

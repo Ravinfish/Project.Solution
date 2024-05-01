@@ -32,13 +32,13 @@ namespace ClassFinder.Controllers
     [HttpPost]
     public ActionResult Create(Category category)
     {
-      if (ModelState.IsValid)
-      {
+      // if (ModelState.IsValid)
+      // {
         _db.Categories.Add(category);
         _db.SaveChanges();
         return RedirectToAction("Index");
-      }
-      return View(category); // Return to the create view with validation errors
+      // }
+      // return View(category); // Return to the create view with validation errors
     }
 
     public ActionResult Details(int id)

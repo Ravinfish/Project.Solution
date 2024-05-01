@@ -18,9 +18,18 @@
   <br />
   @Html.LabelFor(model => model.Schedule)
   @Html.TextBoxFor(model => model.Schedule)
+   <br />
+  @Html.LabelFor(model => model.WebsiteUrl)
+  @Html.TextBoxFor(model => model.WebsiteUrl, new { @class = "form-control" })
   <br />
-  @Html.LabelFor(model => model.Category)
-  @Html.DropDownList("CategoryId")
+    <div class="form-group">
+    <label asp-for="CategoryId" class="control-label"></label>
+    @Html.DropDownList("CategoryId", ViewData["CategoryId"] as SelectList, "Select Category", new
+      {
+        @class =
+        "form-control"
+      })
+  </div>
   <br />
   <input type="submit" value="Update" />
 }

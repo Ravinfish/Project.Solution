@@ -14,6 +14,8 @@
       <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
       <h3>@Html.DisplayNameFor(model => model.Schedule): @Html.DisplayFor(model => model.Schedule)</h3>
       <h3>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category.Name)</h3>
+      <h3>Website:</h3>
+      <p><a href="@Model.WebsiteUrl" target="_blank">@Model.WebsiteUrl</a></p>
     </div>
   </div>
 </div>

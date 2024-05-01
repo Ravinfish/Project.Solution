@@ -23,8 +23,11 @@
   @Html.LabelFor(model => model.Address)
   @Html.TextBoxFor(model => model.Address)
   <br />
+  @Html.LabelFor(model => model.WebsiteUrl)
+  @Html.TextBoxFor(model => model.WebsiteUrl, new { @class = "form-control" })
+  <br />
   @Html.LabelFor(model => model.Category)
   @Html.DropDownList("CategoryId")
   <br />
-  <input type="submit" value="Add new category" />
+  <input type="submit" value="Add Company" />
 }

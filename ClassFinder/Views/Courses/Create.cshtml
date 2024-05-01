@@ -19,6 +19,9 @@
   <br />
   @Html.LabelFor(model => model.Schedule)
   @Html.TextBoxFor(model => model.Schedule)
+   <br />
+  @Html.LabelFor(model => model.WebsiteUrl)
+  @Html.TextBoxFor(model => model.WebsiteUrl, new { @class = "form-control" })
   <br />
   @Html.LabelFor(model => model.Category)
   @Html.DropDownList("CategoryId")

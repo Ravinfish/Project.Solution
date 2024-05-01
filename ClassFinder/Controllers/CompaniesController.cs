@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using ClassFinder.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClassFinder.Controllers
 {
-  public class CompaniesController :  Controller
+  public class CompaniesController : Controller
   {
     private readonly ClassFinderContext _db;
     public CompaniesController(ClassFinderContext db)
@@ -16,24 +17,28 @@ namespace ClassFinder.Controllers
 
     public ActionResult Index()
     {
-      List<Company> model = _db.Companies.ToList();
-      return View(model);
+      List<Company> companies = _db.Companies.Include(c => c.Category).ToList();
+      return View(companies);
     }
 
     public ActionResult Create()
     {
+      // Get categories from the database
+      var categories = _db.Categories.ToList();
+
+      // Create a SelectList for the categories
+      ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name");
+
       return View();
     }
     [HttpPost]
     public ActionResult Create(Company company)
     {
-      if (ModelState.IsValid)
-      {
-        _db.Companies.Add(company);
-        _db.SaveChanges();
-        return RedirectToAction("Index");
-      }
-      return View(company);
+
+      _db.Companies.Add(company);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+
     }
 
     public ActionResult Details(int id)
@@ -53,12 +58,18 @@ namespace ClassFinder.Controllers
 
     public ActionResult Edit(int id)
     {
-        var company = _db.Companies.FirstOrDefault(c => c.CompanyId == id);
-
+      // Retrieve the company from the database
+      var company = _db.Companies.Find(id);
       if (company == null)
       {
         return NotFound();
       }
+
+      // Get categories from the database
+      var categories = _db.Categories.ToList();
+
+      // Create a SelectList for the categories
+      ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name", company.CategoryId);
 
       return View(company);
     }

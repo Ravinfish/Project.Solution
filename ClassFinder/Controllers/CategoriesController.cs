@@ -12,10 +12,12 @@ namespace ClassFinder.Controllers
   public class CategoriesController : Controller
   {
     private readonly ClassFinderContext _db;
+
     public CategoriesController(ClassFinderContext db)
     {
       _db = db;
     }
+
     public ActionResult Index()
     {
       List<Category> model = _db.Categories.ToList();
@@ -104,7 +106,6 @@ namespace ClassFinder.Controllers
       _db.SaveChanges();
 
       return RedirectToAction("Index");
-
     }
   }
 }

@@ -13,5 +13,6 @@ public class Company
 
   public string? Owner { get; set; }
   public string? Address { get; set; }
+  public string WebsiteUrl { get; set; }
 
 } 

@@ -4,6 +4,7 @@
 
 @using ClassFinder.Models;
 @model List<ClassFinder.Models.Course>;
+<div class="container">
 <h1>Class List</h1>
 
 @if (@Model.Count == 0)
@@ -17,5 +18,7 @@ else
     <h4>@Html.ActionLink($"{course.Title}", "Details", new { id = course.CourseId }) | @course.Category.Name</h4>
   }
 }
+<br />
 
-<p>Go to @Html.ActionLink("this page", "Create", "Courses") to create a course.</p>
+<p>@Html.ActionLink("Click here", "Create", "Courses") to add a class.</p>
+</div>

@@ -4,6 +4,7 @@
 
 @using ClassFinder.Models;
 @model List<ClassFinder.Models.Company>;
+<div class="container">  
 <h1>Company List</h1>
 
 @if (@Model.Count == 0)
@@ -18,4 +19,6 @@ else
 
   }
 }
-<p>Go to @Html.ActionLink("this page", "Create", "Companies") to create add a company.</p>
+<br />
+<p>@Html.ActionLink("Click here", "Create", "Companies") to add a business.</p>
+</div>

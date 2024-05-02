@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+body {
+  background-color: rgb(240, 238, 240);
+  font-family: 'Montserrat', sans-serif;
+  margin: 3%;
+}
+
+.container {
+  display: -moz-stack;
+  justify-content: space-evenly; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 50vh; /* Adjust the height as needed */
+}
+
+.button-container {
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  justify-content: space-between;
+}
+
+.navButton {
+  margin-bottom: 3%;
+}

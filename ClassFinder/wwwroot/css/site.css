@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+  font-size: 5px;
 }
 
 @media (min-width: 768px) {
@@ -15,4 +15,11 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 100vh; /* Adjust the height as needed */
 }

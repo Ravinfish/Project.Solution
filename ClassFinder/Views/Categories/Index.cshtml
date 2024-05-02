@@ -4,7 +4,7 @@
 
 @using ClassFinder.Models
 @model List<ClassFinder.Models.Category>
-
+<div class="container">
 <h1>Category List</h1>
 
 @if (Model.Count == 0)
@@ -18,5 +18,6 @@ else
     <h4>@Html.ActionLink(category.Name, "Details", "Categories", new { id = category.CategoryId }, null)</h4>
   }
 }
-
-<button>@Html.ActionLink("Add new Category", "Create", "Categories")</button>
+<br />
+<button>@Html.ActionLink("Add a Category", "Create", "Categories")</button>
+</div>

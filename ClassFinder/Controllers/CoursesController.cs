@@ -52,19 +52,19 @@ namespace ClassFinder.Controllers
       return View(course);
     }
 
-    public ActionResult Edit(int id)
+  public ActionResult Edit(int id)
+{
+    var course = _db.Courses.Include(c => c.Category).FirstOrDefault(c => c.CourseId == id);
+    if (course == null)
     {
-      var course = _db.Courses.Find(id);
-      if (course == null)
-      {
         return NotFound();
-      }
-
-   // Create a SelectList for the categories
-      ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name", company.CategoryId);
-
-      return View(course);
     }
+
+    var categories = _db.Categories.ToList();
+    ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name", course.CategoryId);
+
+    return View(course);
+}
 
     [HttpPost]
     public ActionResult Edit(Course course)

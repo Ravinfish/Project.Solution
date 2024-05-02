@@ -5,7 +5,7 @@
 @model ClassFinder.Models.Course
 
 <h2>Edit</h2>
-<h4>Edit this Business: @Html.DisplayFor(model => model.Title)</h4>
+<h4>Edit: @Html.DisplayFor(model => model.Title)</h4>
 <hr />
 
 @using (Html.BeginForm())
@@ -18,16 +18,15 @@
   <br />
   @Html.LabelFor(model => model.Schedule)
   @Html.TextBoxFor(model => model.Schedule)
-   <br />
+  <br />
   @Html.LabelFor(model => model.WebsiteUrl)
   @Html.TextBoxFor(model => model.WebsiteUrl, new { @class = "form-control" })
   <br />
-    <div class="form-group">
+  <div class="form-group">
     <label asp-for="CategoryId" class="control-label"></label>
     @Html.DropDownList("CategoryId", ViewData["CategoryId"] as SelectList, "Select Category", new
       {
-        @class =
-        "form-control"
+        @class = "form-control"
       })
   </div>
   <br />

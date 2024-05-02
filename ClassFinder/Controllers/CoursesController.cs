@@ -16,18 +16,18 @@ namespace ClassFinder.Controllers
       _db = db;
     }
 
-     public ActionResult Index()
-        {
-            List<Course> courses = _db.Courses.Include(c => c.Category).ToList();
-            return View(courses);
-        }
+    public ActionResult Index()
+    {
+      List<Course> courses = _db.Courses.Include(c => c.Category).ToList();
+      return View(courses);
+    }
 
-   public ActionResult Create()
-        {
-            var categories = _db.Categories.ToList();
-            ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name");
-            return View();
-        }
+    public ActionResult Create()
+    {
+      var categories = _db.Categories.ToList();
+      ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name");
+      return View();
+    }
 
     [HttpPost]
     public ActionResult Create(Course course)
@@ -54,12 +54,14 @@ namespace ClassFinder.Controllers
 
     public ActionResult Edit(int id)
     {
-      var course = _db.Courses.FirstOrDefault(c => c.CourseId == id);
-
+      var course = _db.Courses.Find(id);
       if (course == null)
       {
         return NotFound();
       }
+
+   // Create a SelectList for the categories
+      ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name", company.CategoryId);
 
       return View(course);
     }
@@ -73,6 +75,10 @@ namespace ClassFinder.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
+
+      // Repopulate the CategoryId dropdown list
+      // var categories = _db.Categories.ToList();
+      // ViewData["CategoryId"] = new SelectList(categories, "CategoryId", "Name", course.CategoryId);
 
       return View(course); // Return to the edit view with validation errors
     }

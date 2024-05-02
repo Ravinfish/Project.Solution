@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClassFinder.Migrations
 {
     [DbContext(typeof(ClassFinderContext))]
-    [Migration("20240501175351_Initial")]
+    [Migration("20240502011523_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,7 @@ namespace ClassFinder.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("CategoryId");
@@ -82,6 +83,10 @@ namespace ClassFinder.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Title")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("WebsiteUrl")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("CourseId");

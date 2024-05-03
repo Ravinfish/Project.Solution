@@ -2,9 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 body {
-  background-color: rgb(240, 238, 240);
+  /* background-color: rgba(255, 255, 255, 0.845); */
   font-family: 'Montserrat', sans-serif;
   margin: 3%;
+  background-image: url("https://media.discordapp.net/attachments/1167117958766661754/1235714414544551956/1.png?ex=6635603a&is=66340eba&hm=880712ed014b487255058a57a78f8c77dcfed1bd5d00c113deb303cac3723214&=&format=webp&quality=lossless&width=935&height=467");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -19,10 +23,45 @@ body {
 }
 
 .header {
-  text-align: center;
+  display: flex;
   justify-content: space-between;
 }
 
 .navButton {
   margin-bottom: 3%;
 }
+
+.logo {
+  width: 150px;
+  height: 200px;
+  margin-left: 0px;
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 5rem; /* Adjust the font size as needed */
+  margin-bottom: 1%; /* Add margin to the bottom of the header */
+  margin-top: 8%;
+}
+
+/* h1 {
+  margin: 0;
+  padding: -10;
+  padding-top: 8%;
+} */
+
+.intro {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 80vh; /* Set the height to 80% of the viewport height */
+  padding: 0 20px; /* Add padding to prevent text from touching the edges */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+  /* margin-top: 20px; Add margin to the top of the intro section */
+}
+
+.intro-text {
+  text-align: center; /* Center the text within the intro div */
+}
+

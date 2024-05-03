@@ -1,10 +1,17 @@
-<h1 class="text-center">PortlandBridge</h1>
-<br>
+<h1 class="text-center">
+  <span>PortlandBridge</span>
+  <img
+    src="https://media.discordapp.net/attachments/1167117958766661754/1235714075393134672/Untitled_design_1.png?ex=66355fea&is=66340e6a&hm=202513836dfedff22c23e05b6a8787ce85d1cba791196012db436f7e9620d89d&=&format=webp&quality=lossless&width=468&height=468"
+    alt="Logo" class="logo">
+</h1>
+<br />
 <div class=header>
-  <div id="navbar" class="text-center">
+  <div id="navbar" class="text-right">
+    <button>@Html.ActionLink("Home", "Index", "Home")</button>
     <button class="navButton">@Html.ActionLink("Companies", "Index", "Companies")</button>
     <button class="navButton">@Html.ActionLink("Categories", "Index", "Categories")</button>
     <button class="navButton">@Html.ActionLink("Courses", "Index", "Courses")</button>
-    <button>@Html.ActionLink("Home", "Index", "Home")</button>
-   
+    
+
   </div>
+  <hr />
